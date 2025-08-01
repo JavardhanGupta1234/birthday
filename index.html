@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Olivia!</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to top right, #ffecd2, #fcb69f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff4081;
+      animation: fadeIn 2s ease-in-out 8s;
+    }
+
+    .cake {
+      width: 250px;
+      margin: 30px auto;
+      position: relative;
+      animation: rise 3s ease-in-out;
+    }
+
+    .candles {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .candle {
+      width: 10px;
+      height: 40px;
+      background: #ffd700;
+      border-radius: 2px;
+      animation: flicker 0.5s infinite;
+    }
+
+    .gojo {
+      width: 550px;
+      position: absolute;
+      bottom: 50px;
+      right: -600px;
+      transform: scaleX(1);
+      animation: gojoBounceIn 3s ease-out 3s forwards,
+                 lookAtCake 1s ease-in-out 6s forwards,
+                 lookAtUser 1s ease-in-out 7.5s forwards,
+                 waveHand 1.2s ease-in-out 8s 1 forwards;
+    }
+
+    .message {
+      font-size: 1.8em;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out 9s;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes rise {
+      from { transform: translateY(300px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes gojoBounceIn {
+      0%   { right: -300px; transform: scaleX(1) translateY(0); }
+      20%  { transform: scaleX(1) translateY(-10px); }
+      40%  { transform: scaleX(1) translateY(0); right: -200px; }
+      60%  { transform: scaleX(1) translateY(-10px); }
+      80%  { transform: scaleX(1) translateY(0); right: -100px; }
+      100% { transform: scaleX(1) translateY(0); right: 100px; }
+    }
+
+    @keyframes lookAtCake {
+      from { transform: scaleX(1); }
+      to { transform: scaleX(-1); }
+    }
+
+    @keyframes lookAtUser {
+      from { transform: scaleX(-1); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes waveHand {
+      0% { transform: scaleX(1) rotate(0deg); }
+      30% { transform: scaleX(1) rotate(5deg); }
+      60% { transform: scaleX(1) rotate(-5deg); }
+      100% { transform: scaleX(1) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Happy Birthday Olivia! 🎉</h1>
+  <div class="cake">
+    <img src="b.png" alt="Smiling Cake" width="250">
+    <div class="candles">
+      <div class="candle"></div>
+      <div class="candle"></div>
+      <div class="candle"></div>
+    </div>
+  </div>
+  <div class="message">Wishing you joy, love, and an amazing year ahead! 🥳</div>
+</div>
+
+<img src="gojo.png" class="gojo" alt="Satoru Gojo">
+
+<!-- Music and Voiceover -->
+<audio autoplay>
+  <source src="audio/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="gojoVoice" src="gojo.mp3"></audio>
+
+<script>
+  setTimeout(() => {
+    document.getElementById("gojoVoice").play();
+  }, 8000); // Play Gojo's voice when he turns to screen
+</script>
+</body>
+</html>
