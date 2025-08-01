@@ -124,17 +124,42 @@
 
 <img src="gojo.png" class="gojo" alt="Satoru Gojo">
 
-<!-- Music and Voiceover -->
-<audio autoplay>
+<!-- Audio Elements -->
+<audio id="bg-audio" loop>
   <source src="audio/birthday.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
 </audio>
 
 <audio id="gojoVoice" src="gojo.mp3"></audio>
 
+<!-- Start Button -->
+<div style="text-align:center; margin-top: 20px;">
+  <button onclick="startBirthday()" style="padding: 12px 24px; font-size: 20px; background-color: #ff4081; color: white; border: none; border-radius: 10px; cursor: pointer;">
+    🎵 Start Birthday Surprise
+  </button>
+</div>
+
+<!-- Script to handle audio playback -->
 <script>
-  setTimeout(() => {
-    document.getElementById("gojoVoice").play();
-  }, 8000); // Play Gojo's voice when he turns to screen
+  function startBirthday() {
+    const bgAudio = document.getElementById("bg-audio");
+    const gojoVoice = document.getElementById("gojoVoice");
+
+    // Play background music
+    bgAudio.play().catch(err => {
+      console.log("Background audio play failed:", err);
+    });
+
+    // Hide button after click
+    event.target.style.display = "none";
+
+    // Play Gojo voice after 8 seconds
+    setTimeout(() => {
+      gojoVoice.play().catch(err => {
+        console.log("Gojo voice play failed:", err);
+      });
+    }, 8000);
+  }
 </script>
 </body>
 </html>
